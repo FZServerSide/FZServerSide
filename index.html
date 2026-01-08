@@ -3,228 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FZ ServerSide - Most Powerful Server-Side Executor</title>
+    <title>FZ ServerSide - #1 Roblox Server-Side Executor 2026</title>
+    <meta name="description" content="FZ ServerSide - The most powerful, undetected Roblox server-side executor with advanced backdoor scanner, huge script library, and full server control.">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gotham:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gotham:wght@300;400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            margin: 0;
-            padding: 0;
             background: #0a0a0a;
             color: #e6e6e6;
             font-family: 'Gotham', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        .menu {
-            width: 571px;
-            height: 290px;
-            background: #0f0f0f;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        header {
+            background: linear-gradient(to bottom, #0f0f0f, #0a0a0a);
+            padding: 60px 20px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        .header {
-            height: 35px;
-            background: #0a0a0a;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            display: flex;
-            align-items: center;
-            padding: 0 12px;
-            position: relative;
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(120,220,120,0.1), transparent);
+            pointer-events: none;
         }
         
-        .title {
+        h1 {
+            font-size: 48px;
             font-weight: bold;
-            font-size: 19px;
-            margin-top: 4px;
+            margin-bottom: 10px;
+            color: #78dc78;
         }
         
-        .version {
-            font-size: 12px;
-            color: #a0a0a0;
-            margin-top: 4px;
+        .tagline {
+            font-size: 24px;
+            color: #b4b4b4;
+            margin-bottom: 30px;
         }
         
-        .icons {
-            position: absolute;
-            right: 12px;
-            top: 8px;
-            display: flex;
-            gap: 32px;
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #78dc78;
+            color: #0a0a0a;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px;
+            transition: all 0.3s;
         }
         
-        .icon {
-            width: 22px;
-            height: 22px;
-            filter: grayscale(100%) brightness(60%);
-            opacity: 0.7;
-            cursor: pointer;
-            transition: all 0.2s;
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(120,220,120,0.5);
         }
         
-        .icon.active {
-            filter: none;
-            opacity: 1;
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid #78dc78;
+            color: #78dc78;
         }
         
-        .icon:hover {
-            opacity: 1;
-        }
-        
-        .bar {
-            position: absolute;
-            bottom: 0;
-            width: 26px;
-            height: 3px;
-            background: #c8c8c8;
-            transition: left 0.25s ease;
-        }
-        
-        .tabs {
-            position: absolute;
-            top: 35px;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 35px);
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        
-        .tab {
-            position: absolute;
-            width: calc(100% - 40px);
-            height: calc(100% - 40px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s;
-        }
-        
-        .tab.active {
-            opacity: 1;
-            visibility: visible;
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         h2 {
-            color: #e6e6e6;
-            margin-top: 0;
-        }
-        
-        .highlight {
-            color: #78dc78;
-            font-weight: bold;
-        }
-        
-        .powerful {
-            font-size: 18px;
-            color: #78dc78;
+            font-size: 36px;
             text-align: center;
-            margin: 15px 0;
+            margin-bottom: 50px;
+            color: #78dc78;
         }
         
-        .script-grid {
+        .features {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #0f0f0f;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #78dc78;
+        }
+        
+        .gui-preview {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .gui-preview img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+        
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         
         .script-card {
             background: #181818;
-            padding: 12px;
+            padding: 20px;
             border-radius: 8px;
+            text-align: center;
         }
         
         .script-card h3 {
-            margin: 0 0 6px 0;
-            font-size: 15px;
+            color: #78dc78;
         }
         
-        .script-card p {
-            margin: 0;
-            font-size: 12px;
-            color: #a0a0a0;
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #202020;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .tagline { font-size: 18px; }
         }
     </style>
 </head>
 <body>
-    <div class="menu">
-        <div class="header">
-            <div>
-                <div class="title">FZ ServerSide</div>
-                <div class="version">Latest Version</div>
-            </div>
-            <div class="icons">
-                <img src="https://www.roblox.com/asset-thumbnail/image?assetId=7743872929&width=420&height=420&format=png" class="icon active" alt="Console">
-                <img src="https://www.roblox.com/asset-thumbnail/image?assetId=11570895459&width=420&height=420&format=png" class="icon" alt="Executor">
-                <img src="https://www.roblox.com/asset-thumbnail/image?assetId=6031075938&width=420&height=420&format=png" class="icon" alt="Library">
-            </div>
-            <div class="bar" style="left: 463px;"></div>
-        </div>
-        
-        <div class="tabs">
-            <!-- Console Tab -->
-            <div class="tab active">
-                <h2>Console</h2>
-                <p>[21:33:00] Console ready – output will appear here.</p>
-                <p>[21:33:05] Loaded latest FZ ServerSide</p>
-                <p class="highlight">[21:33:10] ● Connected (Server-Side)</p>
-                <div class="powerful">Most advanced backdoor scanner • Undetected • Powerful</div>
-            </div>
-            
-            <!-- Executor Tab -->
-            <div class="tab">
-                <h2>Script Executor</h2>
-                <p>Execute any server-side script with one click.</p>
-                <div class="powerful">Full server control • Bypass filters • Instant execution</div>
-                <p>Status: <span class="highlight">● Connected</span></p>
-            </div>
-            
-            <!-- Library Tab -->
-            <div class="tab">
-                <h2>Script Library (150+ Scripts)</h2>
-                <div class="powerful">Biggest & most updated server-side library ever</div>
-                <p>Admins • Entities • Glitchers • Tools • Memes • Bypass editions</p>
-                
-                <div class="script-grid">
-                    <div class="script-card"><h3>Reviz Admin</h3><p>Infinite commands</p></div>
-                    <div class="script-card"><h3>Siren Head</h3><p>Horror entity</p></div>
-                    <div class="script-card"><h3>Nebula Glitcher</h3><p>Bypass edition</p></div>
-                    <div class="script-card"><h3>Infinite Yield</h3><p>Rainbow + extras</p></div>
-                    <div class="script-card"><h3>Obama Boss</h3><p>Presidential power</p></div>
-                    <div class="script-card"><h3>Uganda Knuckles</h3><p>De wey</p></div>
-                </div>
-                
-                <p style="text-align:center; margin-top:20px;" class="highlight">150+ more insane scripts inside...</p>
-            </div>
-        </div>
-    </div>
+    <header>
+        <h1>FZ ServerSide</h1>
+        <p class="tagline">The Most Powerful & Undetected Roblox Server-Side Executor in 2026</p>
+        <a href="#" class="btn">Get Key Now</a>
+        <a href="https://discord.gg/youractualinvite" class="btn secondary" target="_blank">Join Discord</a>
+    </header>
 
-    <script>
-        const icons = document.querySelectorAll('.icon');
-        const tabs = document.querySelectorAll('.tab');
-        const bar = document.querySelector('.bar');
-        
-        const positions = [463, 495, 527];
-        
-        icons.forEach((icon, index) => {
-            icon.addEventListener('click', () => {
-                icons.forEach(i => i.classList.remove('active'));
-                icon.classList.add('active');
-                
-                tabs.forEach(t => t.classList.remove('active'));
-                tabs[index].classList.add('active');
-                
-                bar.style.left = positions[index] + 'px';
-            });
-        });
-    </script>
+    <section id="preview">
+        <h2>Beautiful & Intuitive GUI</h2>
+        <div class="gui-preview">
+            <img src="https://via.placeholder.com/800x450/0f0f0f/78dc78?text=FZ+ServerSide+GUI+Preview" alt="FZ ServerSide GUI Preview">
+            <p style="margin-top:20px; font-size:18px;">Modern design • Console • Script Editor • Massive Library</p>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Why FZ ServerSide is the #1 Choice</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Advanced Backdoor Scanner</h3>
+                <p>Lightning-fast detection of any backdoor in seconds. Works on thousands of games.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Full Server Control</h3>
+                <p>Execute any Lua code server-side. Bypass filters, spawn entities, give admin – unlimited power.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Huge Script Library</h3>
+                <p>200+ updated scripts: Reviz Admin, Infinite Yield, Siren Head, Glitchers, Memes & more.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Whitelist Protected</h3>
+                <p>Secure key system. Only paid users – no skids, no leaks.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Undetected & Stable</h3>
+                <p>Constant updates. Works perfectly in 2026 with the latest Roblox protections.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Active Community</h3>
+                <p>Thousands of members, raids, support, and new scripts daily.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="library">
+        <h2>Script Library Highlights (200+ Scripts)</h2>
+        <div class="library-grid">
+            <div class="script-card"><h3>Reviz Admin</h3><p>Full commands</p></div>
+            <div class="script-card"><h3>Infinite Yield</h3><p>Rainbow + bypass</p></div>
+            <div class="script-card"><h3>Nebula Glitcher</h3><p>Latest edition</p></div>
+            <div class="script-card"><h3>Siren Head</h3><p>Horror entity</p></div>
+            <div class="script-card"><h3>Obama Boss</h3><p>Epic model</p></div>
+            <div class="script-card"><h3>Uganda Knuckles</h3><p>De wey</p></div>
+            <div class="script-card"><h3>R6 Rig</h3><p>Classic animation</p></div>
+            <div class="script-card"><h3>And 193 more...</h3><p>All auto-username supported</p></div>
+        </div>
+    </section>
+
+    <section style="text-align:center; padding:60px 20px; background:#0f0f0f;">
+        <h2>Ready to Dominate?</h2>
+        <p style="font-size:20px; margin:30px 0;">Join the most powerful server-side community today.</p>
+        <a href="https://discord.gg/youractualinvite" class="btn" target="_blank">Join Discord & Buy Key</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 FZ ServerSide. All rights reserved.</p>
+        <p>Undetected • Powerful • Community Driven</p>
+    </footer>
 </body>
-</html>
+    </html>
